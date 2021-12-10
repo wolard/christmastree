@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Canvas from './Canvas'
+import kuusi from './kuusi3.jpg'
+import { ColorPicker } from 'material-ui-color';
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [rgbColor, setrgbColor]=useState([255,255,255]);
+  const [Color, setColor]=useState('white');
+   const handleChangecolor=(e)=>{
+    setrgbColor(e.rgb)
+    setColor(e.value)
+ }
+ 
+  return(
+  <>
+  <Canvas  rgbColor={rgbColor}  height={500} width={358} className="canv"  style={{backgroundImage: `url(${kuusi})`}}/>
+ <div className="colorpicker">
+   <ColorPicker 
+    hideTextfield 
+    value={Color}
+    onChange={e =>handleChangecolor(e)}    />
+ </div>
+  </>
+  )
 }
 
-export default App;
+export default App

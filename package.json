@@ -6,16 +6,17 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "material-ui-color": "^1.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
+    "react-scripts": "4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dist": "awot-static"
   },
   "eslintConfig": {
     "extends": [
@@ -25,14 +26,27 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "awot-scripts": "^3.1.2"
+  },
+  "proxy": "http://192.168.0.101",
+  "awot-static": {
+    "sources": "./build",
+    "indexFile": "index.html",
+    "sketchDir": "./BlinkServer",
+    "exclude": [
+      "*.map",
+      "service-worker.js"
     ]
   }
 }
